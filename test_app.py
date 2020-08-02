@@ -70,13 +70,13 @@ class BookshopTestCase(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data["success"], True)
 
-    # def test_deleteBook(self):
-    #     res = self.client().delete('/categories/6', headers={
-    #         "Authorization": "Bearer {}".format(os.environ.get('owner_token'))
-    #       })
-    #     data = json.loads(res.data)
-    #     self.assertEqual(res.status_code, 200)
-    #     self.assertEqual(data["success"], True)
+    def test_deleteBook(self):
+        res = self.client().delete('/categories/8', headers={
+            "Authorization": "Bearer {}".format(os.environ.get('owner_token'))
+          })
+        data = json.loads(res.data)
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(data["success"], True)
 
     def test_patchBook(self):
         change = {
@@ -176,9 +176,7 @@ class BookshopTestCase(unittest.TestCase):
             })
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 403)
-        #self.assertEqual(data["success"], False)
-        #self.assertEqual(data["message"], "Forbidden/Unauthorized")
-
+        
 
 if __name__ == "__main__":
     unittest.main()
