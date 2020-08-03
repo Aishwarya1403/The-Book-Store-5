@@ -32,16 +32,6 @@ def create_app(test_config=None):
             "books": formatted
         }), 200
 
-    @app.route('/books')  # gives all the books
-    @requires_auth('get:books')
-    def all_books(payload):
-        all_books = Books.query.all()
-        formatted = [book.format() for book in all_books]
-        return jsonify({
-            "success": True,
-            "books": formatted
-        }), 200
-
     @app.route('/categories/<int:id>')  # id represents the id of the books
     @requires_auth('get:books_by_id')
     def books_by_category(payload, id):
