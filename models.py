@@ -8,6 +8,7 @@ database_name = "bookstore"
 database_path = "postgres://zlqnqaggmdnzlu:85cb252edd9cab2a85ff5295d88006bc34f32d0ef3e67f8192421664f52ee0ca@ec2-52-1-95-247.compute-1.amazonaws.com:5432/d76g8nijpsoav2"
 db = SQLAlchemy()
 
+
 def setup_db(app, database_path=database_path):
     app.config["SQLALCHEMY_DATABASE_URI"] = database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -22,8 +23,8 @@ class Books(db.Model):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     author = Column(String)
+    # representing the theme of the book
     category_id = Column(Integer, ForeignKey('category.id'))
-
 
     def __init__(self, name, author, category_id):
         self.name = name
@@ -40,33 +41,31 @@ class Books(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
-    
+
     def format(self):
         return{
-            'id':self.id,
-            'name':self.name,
-            'author':self.author,
-            'category_id':self.category_id
+            'id': self.id,
+            'name': self.name,
+            'author': self.author,
+            'category_id': self.category_id
         }
 
 
 class Categories(db.Model):
-    __tablename__= 'category'
+    __tablename__ = 'category'
 
     id = Column(Integer, primary_key=True)
     book = relationship("Books", backref="category")
     genre = Column(String)
     language = Column(String)
-    
 
-    def __init__(self):
+    def __init__(self, genre):
         self.genre = genre
 
     def format(self):
         return{
-            'id':self.id,
-            'book':self.book,
-            'genre':self.genre,
-            'language':self.language
+            'id': self.id,
+            'book': self.book,
+            'genre': self.genre,
+            'language': self.language
         }
-
