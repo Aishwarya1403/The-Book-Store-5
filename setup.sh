@@ -1,4 +1,4 @@
 export AUTH0_DOMAIN="dev-b9uuiwyh.us.auth0.com"
 export API_AUDIENCE="https://bookshop/"
 export ALGORITHMS=["RS256"]
-export DATABASE_URL="postgres://zlqnqaggmdnzlu:85cb252edd9cab2a85ff5295d88006bc34f32d0ef3e67f8192421664f52ee0ca@ec2-52-1-95-247.compute-1.amazonaws.com:5432/d76g8nijpsoav2"
+export DATABASE_URL="postgres://gvampthxsmriow:78765375a004d6fc1be5a408fd753d180406a328174d95ed367560ba58d6092f@ec2-35-173-94-156.compute-1.amazonaws.com:5432/d63f8sqspn5dgk"
