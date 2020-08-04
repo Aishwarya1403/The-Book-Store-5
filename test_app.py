@@ -84,7 +84,8 @@ class BookshopTestCase(unittest.TestCase):
             "category": 35
         }
         res = self.client().patch('/category/9', headers={
-            "Authorization": "Bearer {}".format(os.environ.get('owner_token'))}, json=change)
+            "Authorization": "Bearer {}".format(os.environ.get('owner_token'))
+            }, json=change)
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data["success"], True)
@@ -135,8 +136,8 @@ class BookshopTestCase(unittest.TestCase):
         self.assertEqual(data["success"], False)
         self.assertEqual(data["message"], "Not Found")
 
-
 # ROLE-BASED TESTS FOR KEEPER #
+
     def test_403_keeper_post(self):
         new_book = {
             "name": "Godan",

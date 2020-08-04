@@ -5,7 +5,7 @@ import json
 from sqlalchemy.orm import relationship
 
 database_name = "bookstore"
-database_path = "postgres://gvampthxsmriow:78765375a004d6fc1be5a408fd753d180406a328174d95ed367560ba58d6092f@ec2-35-173-94-156.compute-1.amazonaws.com:5432/d63f8sqspn5dgk"
+database_path = "postgres://gvampthxsmriow:78765375a004d6fc1be5a408fd753d180406a328174d95ed367560ba58d6092f@ec2-35-173-94-156.compute-1.amazonaws.com:5432/d63f8sqspn5dgk"  # noqa
 db = SQLAlchemy()
 
 
